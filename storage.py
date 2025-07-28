@@ -20,7 +20,7 @@ class MongoDBStorage:
         result = self.book_collection.find_one(query)
         return result
 
-    def get_books(self, q: str, limit: int = 10, max_price: float = 5000000) -> list[dict]:
+    def get_books(self, q: str = "", limit: int = 10, max_price: float = 5000000) -> list[dict]:
 
         query = {
             "price": {'$lte': max_price},
