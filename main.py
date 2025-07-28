@@ -4,11 +4,47 @@ from uuid import uuid4
 from datetime import datetime
 
 from storage import storage
+from fastapi.templating import Jinja2Templates
+from fastapi import Request
 
 app = FastAPI(
     title='Book store 📚 5897',
     debug=True,
 )
+
+templates = Jinja2Templates(directory="templates")
+
+
+@app.get('/')
+def index(request: Request):
+    context = {
+        'request': request
+    }
+    return templates.TemplateResponse(
+        'index.html',
+        context=context
+    )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class NewBookSchema(BaseModel):
@@ -79,4 +115,3 @@ def put_book(pk: str, book: NewBookSchema) -> BookFull:
 def delete_book(pk: str):
     storage.delete_book(pk)
 
-# web
