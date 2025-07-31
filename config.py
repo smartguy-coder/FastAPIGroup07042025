@@ -10,3 +10,4 @@ MONGO_PASSWORD = os.getenv("MONGO_PASSWORD")
 DATABASE_NANE = 'BookShop'
 BOOK_COLLECTION = 'books'
 
+API_KEY = 'jhjkfdhgjfdhjk63565655'

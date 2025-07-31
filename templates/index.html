@@ -6,11 +6,12 @@
 
 {% for book in books %}
 <div class="card s-3 mt-0 mt-1 g-3 mr-1 ms-1" style="width: 18rem;">
-  <img src="..." class="card-img-top" alt="...">
+  <img src="{{ book['image'] }}" class="card-img-top" alt="...">
   <div class="card-body">
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <h5 class="card-title">{{ book.title }}</h5>
+    <h4 class="card-title">{{ book.price }}</h4>
+    <p class="card-text">{{ book.description|truncate(80) }}</p>
+    <a href="{{ url_for('get_book', pk=book.pk) }}" class="btn btn-primary">Детальніше</a>
   </div>
 </div>
 {% endfor %}
