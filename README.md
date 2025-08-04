@@ -6,3 +6,5 @@
 - pip freeze > requirements.txt 
 - uvicorn main:app   
 - uvicorn main:app --reload
+
+gunicorn -w 4 -k uvicorn.workers.UvicornWorker main:app
